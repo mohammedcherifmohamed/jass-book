@@ -6,15 +6,16 @@
 
 @section('content')
 
+<style>@media(max-width:991px){.hero-books-stack{display:none!important}.hero-grid{grid-template-columns:1fr!important}.hero-text{text-align:start!important}}</style>
 <!-- HERO -->
 <section class="hero" style="position:relative;overflow:hidden;min-height:580px;display:flex;align-items:center;">
   <div style="position:absolute;inset:0;background:linear-gradient(135deg,var(--deep) 0%,var(--crimson) 55%,#a0002a 100%);"></div>
   <div style="position:absolute;inset:0;opacity:.07;background-image:url(&quot;data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E&quot;);"></div>
   <div style="position:absolute;left:-60px;top:-60px;width:400px;height:400px;border-radius:50%;border:80px solid rgba(200,168,75,.12);pointer-events:none;"></div>
-  <div style="position:relative;z-index:2;max-width:1280px;margin:0 auto;padding:80px 24px;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;">
-    <div>
+  <div style="position:relative;z-index:2;max-width:1280px;margin:0 auto;padding:80px 24px;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;" class="hero-grid">
+    <div class="hero-text">
       <span style="display:inline-block;background:rgba(200,168,75,.2);border:1px solid rgba(200,168,75,.5);color:var(--gold-light);border-radius:30px;padding:5px 16px;font-size:12px;font-weight:600;margin-bottom:20px;"> jass.books للكتب الشرعية</span>
-      <h1 style="font-family:'Amiri',serif;font-size:clamp(32px,4vw,56px);font-weight:700;color:#fff;line-height:1.35;margin-bottom:16px;">هنا حيث<br>الكُتُب<br>تجد طريقها إليك</h1>
+      <h1 style="font-family:'Amiri',serif;font-size:clamp(32px,4vw,56px);font-weight:700;color:#fff;line-height:1.35;margin-bottom:16px;" >  بيع الكتب الدينية لكبار علماء أهل السنة والجماعة</h1>
       <p style="color:rgba(255,255,255,.75);font-size:16px;line-height:1.8;margin-bottom:32px;">
         "jass.books" متجركم لبيع الكتب الشرعية، نقدم أفضل المؤلفات للأئمة والعلماء.<br>
         التوصيل داخل الجزائر فقط 🇩🇿
@@ -29,7 +30,7 @@
       </div>
     </div>
     <div style="display:flex;align-items:center;justify-content:center;">
-      <div style="position:relative;width:300px;height:340px;">
+      <div class="hero-books-stack" style="position:relative;width:300px;height:340px;">
         <div style="position:absolute;border-radius:4px 8px 8px 4px;box-shadow:4px 4px 20px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;font-family:'Amiri',serif;font-weight:700;writing-mode:vertical-rl;text-orientation:mixed;letter-spacing:2px;width:52px;height:240px;background:#2c1810;color:var(--gold);left:30px;top:50px;transform:rotate(-5deg);font-size:14px;">إغاثة اللهفان</div>
         <div style="position:absolute;border-radius:4px 8px 8px 4px;box-shadow:4px 4px 20px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;font-family:'Amiri',serif;font-weight:700;writing-mode:vertical-rl;text-orientation:mixed;letter-spacing:2px;width:48px;height:280px;background:#5a0016;color:#e8d5a3;left:90px;top:20px;font-size:12px;">الداء والدواء</div>
         <div style="position:absolute;border-radius:4px 8px 8px 4px;box-shadow:4px 4px 20px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;font-family:'Amiri',serif;font-weight:700;writing-mode:vertical-rl;text-orientation:mixed;letter-spacing:2px;width:54px;height:260px;background:#800020;color:#fff;left:146px;top:40px;transform:rotate(3deg);font-size:13px;">مدارج السالكين</div>

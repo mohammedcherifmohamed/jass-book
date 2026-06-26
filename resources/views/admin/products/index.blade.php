@@ -33,54 +33,56 @@
 
 <div class="card">
     <div class="card-body p-0">
-        <table class="table table-hover mb-0">
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <th>الصورة</th>
-                    <th>العنوان</th>
-                    <th>التصنيف</th>
-                    <th>المؤلف</th>
-                    <th>السعر</th>
-                    <th>متاح</th>
-                    <th>الإجراءات</th>
-                </tr>
-            </thead>
-            <tbody>
-                @forelse($products as $product)
-                <tr>
-                    <td>{{ $product->id }}</td>
-                    <td>
-                        @if($product->image_path)
-                            <img src="{{ asset('storage/' . $product->image_path) }}" class="thumb">
-                        @else
-                            <span class="text-muted">—</span>
-                        @endif
-                    </td>
-                    <td>{{ $product->title }}</td>
-                    <td>{{ $product->category->name ?? '—' }}</td>
-                    <td>{{ $product->author ?? '—' }}</td>
-                    <td>{{ number_format($product->price, 0) }} دج</td>
-                    <td>
-                        @if($product->available)
-                            <span class="badge bg-success">متاح</span>
-                        @else
-                            <span class="badge bg-danger">غير متاح</span>
-                        @endif
-                    </td>
-                    <td>
-                        <a href="{{ route('admin.products.edit', $product) }}" class="btn btn-sm btn-gold"><i class="fas fa-edit"></i></a>
-                        <form action="{{ route('admin.products.destroy', $product) }}" method="POST" class="d-inline" onsubmit="return confirm('هل أنت متأكد من حذف هذا المنتج؟')">
-                            @csrf @method('DELETE')
-                            <button class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
-                        </form>
-                    </td>
-                </tr>
-                @empty
-                <tr><td colspan="8" class="text-center text-muted py-4">لا توجد منتجات</td></tr>
-                @endforelse
-            </tbody>
-        </table>
+        <div class="table-responsive">
+            <table class="table table-hover mb-0">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>الصورة</th>
+                        <th>العنوان</th>
+                        <th>التصنيف</th>
+                        <th>المؤلف</th>
+                        <th>السعر</th>
+                        <th>متاح</th>
+                        <th>الإجراءات</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @forelse($products as $product)
+                    <tr>
+                        <td>{{ $product->id }}</td>
+                        <td>
+                            @if($product->image_path)
+                                <img src="{{ asset('storage/' . $product->image_path) }}" class="thumb">
+                            @else
+                                <span class="text-muted">—</span>
+                            @endif
+                        </td>
+                        <td>{{ $product->title }}</td>
+                        <td>{{ $product->category->name ?? '—' }}</td>
+                        <td>{{ $product->author ?? '—' }}</td>
+                        <td>{{ number_format($product->price, 0) }} دج</td>
+                        <td>
+                            @if($product->available)
+                                <span class="badge bg-success">متاح</span>
+                            @else
+                                <span class="badge bg-danger">غير متاح</span>
+                            @endif
+                        </td>
+                        <td>
+                            <a href="{{ route('admin.products.edit', $product) }}" class="btn btn-sm btn-gold"><i class="fas fa-edit"></i></a>
+                            <form action="{{ route('admin.products.destroy', $product) }}" method="POST" class="d-inline" onsubmit="return confirm('هل أنت متأكد من حذف هذا المنتج؟')">
+                                @csrf @method('DELETE')
+                                <button class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
+                            </form>
+                        </td>
+                    </tr>
+                    @empty
+                    <tr><td colspan="8" class="text-center text-muted py-4">لا توجد منتجات</td></tr>
+                    @endforelse
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
 <div class="mt-3">{{ $products->links() }}</div>
