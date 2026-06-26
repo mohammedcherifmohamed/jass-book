@@ -15,7 +15,7 @@
   <div style="position:relative;z-index:2;max-width:1280px;margin:0 auto;padding:80px 24px;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;" class="hero-grid">
     <div class="hero-text">
       <span style="display:inline-block;background:rgba(200,168,75,.2);border:1px solid rgba(200,168,75,.5);color:var(--gold-light);border-radius:30px;padding:5px 16px;font-size:12px;font-weight:600;margin-bottom:20px;"> jass.books للكتب الشرعية</span>
-      <h1 style="font-family:'Amiri',serif;font-size:clamp(32px,4vw,56px);font-weight:700;color:#fff;line-height:1.35;margin-bottom:16px;" >  بيع الكتب الدينية لكبار علماء أهل السنة والجماعة</h1>
+      <h1 style="font-family:'Amiri',serif;font-size:clamp(32px,4vw,56px);font-weight:700;color:#fff;line-height:1.35;margin-bottom:16px;" >  بيع الكتب الدينية لكبار علماء <span > أهل السنة والجماعة</span></h1>
       <p style="color:rgba(255,255,255,.75);font-size:16px;line-height:1.8;margin-bottom:32px;">
         "jass.books" متجركم لبيع الكتب الشرعية، نقدم أفضل المؤلفات للأئمة والعلماء.<br>
         التوصيل داخل الجزائر فقط 🇩🇿
