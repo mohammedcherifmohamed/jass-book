@@ -10,8 +10,8 @@
 @push('head')
 <script type="application/ld+json">
 {
-  "@context": "https://schema.org/",
-  "@type": "Product",
+  "@@context": "https://schema.org/",
+  "@@type": "Product",
   "name": "{{ $product->title }}",
   "description": "{{ strip_tags($product->description ?? '') }}",
   @if($product->author)
