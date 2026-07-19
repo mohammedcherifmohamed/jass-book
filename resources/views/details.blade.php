@@ -216,7 +216,7 @@
   <div class="cover-col">
     <div class="cover-main">
       @if($product->image_path)
-        <img src="{{ asset('storage/' . $product->image_path) }}" alt="{{ $product->title }}" fetchpriority="high" style="{{ !$product->available ? 'filter:grayscale(.8);opacity:.6;' : '' }}">
+        <img src="{{ asset('storage/' . $product->image_path) }}" alt="{{ $product->title }}" fetchpriority="high" width="3" height="4" style="{{ !$product->available ? 'filter:grayscale(.8);opacity:.6;' : '' }}">
       @else
         <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:40px;text-align:center;{{ !$product->available ? 'filter:grayscale(.8);opacity:.6;' : '' }}">
           <div>
@@ -304,7 +304,7 @@
       <div class="book-card {{ !$related->available ? 'product-unavailable' : '' }}" onclick="window.location.href='{{ route('products.show', $related->id) }}'">
         <div class="book-cover-sm">
           @if($related->image_path)
-            <img src="{{ asset('storage/' . $related->image_path) }}" alt="{{ $related->title }}" loading="lazy" style="{{ !$related->available ? 'filter:grayscale(.8);opacity:.6;' : '' }}">
+            <img src="{{ asset('storage/' . $related->image_path) }}" alt="{{ $related->title }}" loading="lazy" width="3" height="4" style="{{ !$related->available ? 'filter:grayscale(.8);opacity:.6;' : '' }}">
           @endif
           @if(!$related->available)
             <span class="unavailable-badge-sm">غير متاح</span>

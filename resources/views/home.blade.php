@@ -68,7 +68,7 @@
       <a href="{{ route('categories.products', $cat->id) }}" style="text-decoration:none;">
         <div style="position:relative;overflow:hidden;border-radius:12px;aspect-ratio:3/4;cursor:pointer;box-shadow:0 4px 20px rgba(36,27,12,.15);" class="cat-card" data-delay="{{ $loop->index * 100 }}" onmouseover="this.style.boxShadow='0 12px 40px rgba(36,27,12,.3)'" onmouseout="this.style.boxShadow='0 4px 20px rgba(36,27,12,.15)'">
           @if($cat->image_path)
-            <img src="{{ asset('storage/' . $cat->image_path) }}" alt="{{ $cat->name }}" loading="lazy" style="width:100%;height:100%;object-fit:cover;filter:brightness(.7);transition:transform .5s ease;" onmouseover="this.style.transform='scale(1.07)';this.style.filter='brightness(.5)'" onmouseout="this.style.transform='scale(1)';this.style.filter='brightness(.7)'">
+            <img src="{{ asset('storage/' . $cat->image_path) }}" alt="{{ $cat->name }}" loading="lazy" width="3" height="4" style="width:100%;height:100%;object-fit:cover;filter:brightness(.7);transition:transform .5s ease;" onmouseover="this.style.transform='scale(1.07)';this.style.filter='brightness(.5)'" onmouseout="this.style.transform='scale(1)';this.style.filter='brightness(.7)'">
           @else
             <div style="width:100%;height:100%;background:linear-gradient(135deg,var(--deep),var(--crimson));display:flex;align-items:center;justify-content:center;font-size:48px;"></div>
           @endif
@@ -98,7 +98,7 @@
       <div class="book-card {{ !$product->available ? 'product-unavailable' : '' }}" style="background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 2px 12px rgba(36,27,12,.08);cursor:pointer;transition:transform .3s ease,box-shadow .3s ease;" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 12px 32px rgba(36,27,12,.18)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 2px 12px rgba(36,27,12,.08)'" onclick="window.location.href='{{ route('products.show', $product->id) }}'">
         <div style="position:relative;aspect-ratio:3/4;overflow:hidden;background:linear-gradient(135deg,var(--deep),var(--crimson));">
           @if($product->image_path)
-            <img src="{{ asset('storage/' . $product->image_path) }}" alt="{{ $product->title }}" loading="lazy" style="width:100%;height:100%;object-fit:cover;">
+            <img src="{{ asset('storage/' . $product->image_path) }}" alt="{{ $product->title }}" loading="lazy" width="3" height="4" style="width:100%;height:100%;object-fit:cover;">
           @endif
           @if(!$product->available)
             <span class="unavailable-badge">غير متاح</span>

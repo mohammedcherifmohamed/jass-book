@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <link rel="icon" type="image/png" href="{{ asset('storage/logo/logo.webp') }}">
+    <link rel="icon" type="image/png" href="{{ versioned_storage('logo/logo.webp') }}">
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">

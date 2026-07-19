@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <link rel="icon" type="image/png" href="{{ asset('storage/logo/logo.webp') }}">
+    <link rel="icon" type="image/png" href="{{ versioned_storage('logo/logo.webp') }}">
 
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -20,12 +20,14 @@
   <meta name="twitter:title" content="@yield('og_title', 'jass.books للكتب الشرعية')">
   <meta name="twitter:description" content="@yield('og_description', 'jass.books للكتب الشرعية — متجر لبيع الكتب الشرعية، توصيل لجميع ولايات الجزائر.')">
   <meta name="twitter:image" content="@yield('og_image', asset('storage/logo/logo.webp'))">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.13.3/cdn.min.js" defer></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cairo:wght@300;400;600;700;900&display=swap" onload="this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cairo:wght@300;400;600;700;900&display=swap"></noscript>
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"></noscript>
   <meta name="csrf-token" content="{{ csrf_token() }}">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.13.3/cdn.min.js" defer></script>
   <style>
     
     /* ─── SECTION COMMON ─── */
@@ -282,7 +284,7 @@
 <nav class="navbar">
   <div class="nav-inner">
     <a href="{{ route('home') }}" class="logo">
-      <div class="logo-icon"><img src="{{ asset('storage/logo/logo.webp') }}" alt="jass.books"></div>
+      <div class="logo-icon"><img src="{{ versioned_storage('logo/logo.webp') }}" alt="jass.books" width="44" height="44" fetchpriority="high"></div>
       <div class="logo-text">
         <div class="name">jass.books</div>
         <div class="sub">للكتب الشرعية • الجزائر</div>
