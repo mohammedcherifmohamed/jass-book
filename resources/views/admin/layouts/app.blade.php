@@ -32,6 +32,7 @@
         .table-hover tbody tr:hover { background: rgba(128,0,32,.03); }
         .alert { border-radius: 12px; border: none; }
         .pagination { justify-content: center; margin-top: 20px; }
+        .pagination svg { width: 1.25rem; height: 1.25rem; }
         .page-item.active .page-link { background: var(--crimson); border-color: var(--crimson); box-shadow: 0 2px 8px rgba(128,0,32,.3); }
         .page-link { color: var(--crimson); border-radius: 8px !important; margin: 0 2px; border: none; font-weight: 600; padding: 8px 14px; }
         .page-link:hover { background: var(--gold-light); color: var(--deep); }

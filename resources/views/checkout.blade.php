@@ -153,6 +153,12 @@ textarea.form-control { resize: vertical; min-height: 80px; }
                 <div class="error-msg" id="phoneError">رقم الهاتف مطلوب</div>
             </div>
 
+            <div class="form-group" id="homeAddressSection">
+                <label>عنوان المنزل <span class="text-danger">*</span></label>
+                <input type="text" name="home_address" id="homeAddressInput" class="form-control" required placeholder="أدخل عنوان المنزل بالتفصيل">
+                <div class="error-msg" id="homeAddressError">عنوان المنزل مطلوب</div>
+            </div>
+
             <div class="form-group">
                 <label>ملاحظة (اختياري)</label>
                 <textarea name="note" class="form-control" placeholder="أي ملاحظة إضافية..."></textarea>
@@ -240,7 +246,22 @@ function updateCheckoutSummary() {
 function selectDeliveryType(el) {
     document.querySelectorAll('.delivery-option').forEach(o => o.classList.remove('selected'));
     el.classList.add('selected');
-    document.getElementById('deliveryType').value = el.dataset.type;
+    const type = el.dataset.type;
+    document.getElementById('deliveryType').value = type;
+    
+    const homeAddressSection = document.getElementById('homeAddressSection');
+    const homeAddressInput = document.getElementById('homeAddressInput');
+    
+    if (type === 'home') {
+        homeAddressSection.style.display = 'block';
+        homeAddressInput.setAttribute('required', 'required');
+    } else {
+        homeAddressSection.style.display = 'none';
+        homeAddressInput.removeAttribute('required');
+        homeAddressInput.value = '';
+        document.getElementById('homeAddressError').classList.remove('show');
+    }
+
     updateDeliveryPrice();
     renderStopdesks();
 }
@@ -283,6 +304,7 @@ function selectStopdesk(el, id) {
     el.style.borderColor = 'var(--crimson)';
     el.style.background = 'rgba(128,0,32,.04)';
     document.getElementById('stopdeskId').value = id;
+    document.getElementById('stopdeskError').classList.remove('show');
 }
 
 function updateDeliveryPrice() {
@@ -340,6 +362,25 @@ document.getElementById('checkoutForm').addEventListener('submit', function(e) {
         valid = false;
     } else {
         document.getElementById('phoneError').classList.remove('show');
+    }
+
+    const deliveryType = document.getElementById('deliveryType').value;
+    if (deliveryType === 'home') {
+        const address = document.getElementById('homeAddressInput').value.trim();
+        if (!address) {
+            document.getElementById('homeAddressError').classList.add('show');
+            valid = false;
+        } else {
+            document.getElementById('homeAddressError').classList.remove('show');
+        }
+    } else if (deliveryType === 'stopdesk') {
+        const stopdeskId = document.getElementById('stopdeskId').value;
+        if (!stopdeskId) {
+            document.getElementById('stopdeskError').classList.add('show');
+            valid = false;
+        } else {
+            document.getElementById('stopdeskError').classList.remove('show');
+        }
     }
 
     if (!valid) {

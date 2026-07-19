@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Route;
 
 // Frontend Routes
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/products', [FrontProductController::class, 'index'])->name('products.index');
 Route::get('/products/{id}', [FrontProductController::class, 'show'])->name('products.show');
 Route::get('/search', [SearchController::class, 'search'])->name('search');
 Route::get('/categories/{id}', [HomeController::class, 'categoryProducts'])->name('categories.products');

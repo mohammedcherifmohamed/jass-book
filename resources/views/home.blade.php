@@ -25,7 +25,7 @@
         <a href="#categories" style="background:transparent;color:#fff;padding:14px 32px;border-radius:6px;border:2px solid rgba(255,255,255,.4);font-family:'Cairo',sans-serif;font-size:15px;font-weight:700;text-decoration:none;"> التصنيفات</a>
       </div>
       <div style="display:flex;gap:32px;margin-top:40px;padding-top:32px;border-top:1px solid rgba(255,255,255,.15);">
-        <div style="text-align:center;"><div style="font-size:28px;font-weight:900;color:var(--gold);line-height:1;">+{{ $products->count() }}</div><div style="font-size:12px;color:rgba(255,255,255,.6);margin-top:4px;">كتاب متوفر</div></div>
+        <div style="text-align:center;"><div style="font-size:28px;font-weight:900;color:var(--gold);line-height:1;">+{{ $totalProducts -1 }}</div><div style="font-size:12px;color:rgba(255,255,255,.6);margin-top:4px;">كتاب متوفر</div></div>
         <div style="text-align:center;"><div style="font-size:28px;font-weight:900;color:var(--gold);line-height:1;">{{ $categories->count() }}</div><div style="font-size:12px;color:rgba(255,255,255,.6);margin-top:4px;">تصنيف</div></div>
       </div>
     </div>
@@ -121,6 +121,12 @@
       @empty
       <div style="text-align:center;padding:60px 20px;color:var(--warm-gray);">لا توجد كتب متاحة حالياً</div>
       @endforelse
+    </div>
+    
+    <div style="text-align:center;margin-top:48px;">
+      <a href="{{ route('products.index') }}" class="btn-primary" style="text-decoration:none;">
+        <i class="fa-solid fa-book-open" style="margin-left: 8px;"></i> عرض جميع الكتب
+      </a>
     </div>
   </div>
 </div>

@@ -4,17 +4,20 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Product;
+use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         $categories = Category::withCount('products')->get();
         $products = Product::with('category')
             ->latest()
+            ->take(10)
             ->get();
+        $totalProducts = Product::count();
         
-        return view('home', compact('categories', 'products'));
+        return view('home', compact('categories', 'products', 'totalProducts'));
     }
 
     public function categoryProducts($id)

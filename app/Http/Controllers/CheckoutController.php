@@ -65,12 +65,14 @@ class CheckoutController extends Controller
             'note' => 'nullable|string|max:500',
             'cart_data' => 'required|json',
             'stopdesk_id' => 'nullable|exists:stopdesks,id',
+            'home_address' => 'required_if:delivery_type,home|nullable|string|max:500',
         ], [
             'wilaya_id.required' => 'الرجاء اختيار الولاية',
             'delivery_type.required' => 'الرجاء اختيار نوع التوصيل',
             'full_name.required' => 'الاسم الكامل مطلوب',
             'phone.required' => 'رقم الهاتف مطلوب',
             'cart_data.required' => 'السلة فارغة',
+            'home_address.required_if' => 'عنوان المنزل مطلوب عند اختيار توصيل إلى المنزل',
         ]);
 
         $cart = json_decode($request->cart_data, true);
@@ -100,6 +102,9 @@ class CheckoutController extends Controller
         $msg .= "\nالهاتف: {$request->phone}";
         $msg .= "\nالولاية: {$wilaya->name}";
         $msg .= "\nنوع التوصيل: {$deliveryTypeText}";
+        if ($request->delivery_type === 'home' && $request->home_address) {
+            $msg .= "\nعنوان المنزل: {$request->home_address}";
+        }
         if ($request->delivery_type === 'stopdesk' && $request->stopdesk_id) {
             $sd = Stopdesk::find($request->stopdesk_id);
             if ($sd) {

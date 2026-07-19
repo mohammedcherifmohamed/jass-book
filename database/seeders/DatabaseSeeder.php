@@ -5,6 +5,8 @@ namespace Database\Seeders;
 use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+
 
 class DatabaseSeeder extends Seeder
 {
@@ -13,6 +15,7 @@ class DatabaseSeeder extends Seeder
         $this->call(AdminUserSeeder::class);
         $this->call(WilayaSeeder::class);
         $this->call(StopdeskSeeder::class);
+        $this->call(BookSeeder::class);
 
         // $cat1 = Category::create(['name' => 'سجادات صلاة', 'image_path' => null]);
         // $cat2 = Category::create(['name' => 'العقيدة والتوحيد', 'image_path' => null]);
